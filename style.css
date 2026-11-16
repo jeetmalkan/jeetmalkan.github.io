@@ -1,0 +1,345 @@
+/* =========================================================
+   Jeet Malkan - Resume Website Stylesheet
+   Colour theme: Charcoal & Coral
+   ========================================================= */
+
+/* ---------- Colour palette (CSS variables) ---------- */
+:root {
+  --charcoal: #2B2D42;
+  --coral: #EF6F5E;
+  --coral-dark: #C9493A;
+  --background: #F4F4F6;
+  --white: #FFFFFF;
+  --text: #33354A;
+  --muted: #6B6E80;
+}
+
+/* ---------- Universal selector: reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Element selectors ---------- */
+html {
+  scroll-behavior: smooth;      /* smooth scrolling when a nav link is clicked */
+  scroll-padding-top: 70px;     /* so the sticky nav does not cover section titles */
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: var(--charcoal);
+  line-height: 1.3;
+}
+
+a {
+  color: var(--coral-dark);
+}
+
+ul {
+  padding-left: 20px;
+}
+
+/* ---------- Navigation bar: Flexbox + sticky positioning ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--charcoal);
+  padding: 14px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 3px solid var(--coral);
+}
+
+.logo {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--coral);
+}
+
+.navbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* descendant selector + hover pseudo-class */
+.navbar nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+  color: var(--coral);
+}
+
+/* ---------- Hero section: Flexbox ---------- */
+.hero {
+  background-color: var(--charcoal);
+  color: #D9DAE3;
+  padding: 80px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text {
+  max-width: 620px;
+}
+
+.tag {
+  color: var(--coral);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: 46px;
+  margin: 10px 0;
+}
+
+.hero h1 span {
+  color: var(--coral);
+}
+
+.hero h2 {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* Initials circle (can be replaced by a photo later) */
+.initials {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 4px solid var(--coral);
+  background-color: #3A3D57;
+  color: var(--coral);
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 60px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  margin: 20px 10px 0 0;
+  padding: 10px 24px;
+  border: 2px solid var(--coral);
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--coral);
+  color: var(--charcoal);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--coral);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--white);
+}
+
+.btn-outline:hover {
+  background-color: var(--coral);
+  color: var(--charcoal);
+}
+
+/* ---------- Main content area ---------- */
+main {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* child selector: every section directly inside main */
+main > section {
+  padding: 50px 0 10px 0;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--coral);
+  display: inline-block;   /* keeps the underline only as wide as the text */
+}
+
+.subtitle {
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* ---------- Cards: Flexbox wrap ---------- */
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 400px;
+  position: relative;      /* lets the badge be placed inside the card */
+  background-color: var(--white);
+  border-left: 5px solid var(--coral);
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* hover effect: card lifts up slightly */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+/* skill cards are smaller so more fit on one row */
+.skill {
+  flex-basis: 200px;
+  border-left: none;
+  border-top: 5px solid var(--charcoal);
+}
+
+/* ---------- Project cards: absolute positioning for badge ---------- */
+.project {
+  padding-top: 34px;
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: var(--coral);
+  color: var(--charcoal);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+/* ---------- ID selector: achievements list ---------- */
+#achievements .achievement-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.achievement-list li {
+  background-color: var(--white);
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+/* pseudo-class: alternate rows get a coloured edge */
+.achievement-list li:nth-child(odd) {
+  border-left: 4px solid var(--coral);
+}
+
+.achievement-list li:nth-child(even) {
+  border-left: 4px solid var(--charcoal);
+}
+
+/* ---------- Contact ---------- */
+.contact-box {
+  margin-top: 15px;
+  background-color: var(--charcoal);
+  color: var(--white);
+  padding: 20px 24px;
+  border-radius: 8px;
+}
+
+.contact-box a {
+  color: var(--coral);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  padding: 40px 10px 30px;
+}
+
+/* ---------- Responsive design for phones ---------- */
+@media (max-width: 700px) {
+  .navbar {
+    justify-content: center;
+    padding: 12px 16px;
+  }
+
+  .navbar nav {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero {
+    flex-direction: column-reverse;   /* initials circle goes on top */
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .initials {
+    width: 130px;
+    height: 130px;
+    font-size: 44px;
+  }
+
+  .card {
+    flex-basis: 100%;
+  }
+}
